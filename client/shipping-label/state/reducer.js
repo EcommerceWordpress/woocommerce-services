@@ -425,8 +425,8 @@ reducers[ SET_PACKAGE_TYPE ] = ( state, { packageId, boxTypeId } ) => {
 	const oldBox = state.form.packages.all[ oldPackage.box_id ];
 	const newBox = state.form.packages.all[ boxTypeId ];
 	const weight =
-		(newBox != null ? newBox.box_weight : 0) - ( oldBox != null ? oldBox.box_weight : 0 ) +
-			( oldPackage.weight != null ? oldPackage.weight : _.sumBy( oldPackage.items, 'weight' ) )
+		( newBox != null ? newBox.box_weight : 0 ) - ( oldBox != null ? oldBox.box_weight : 0 ) +
+			( oldPackage.weight != null ? oldPackage.weight : _.sumBy( oldPackage.items, 'weight' ) );
 
 	if ( 'not_selected' === boxTypeId ) {
 		// This is when no box is selected
